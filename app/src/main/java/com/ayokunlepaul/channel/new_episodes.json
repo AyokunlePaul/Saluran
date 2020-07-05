@@ -1,0 +1,66 @@
+{
+  "data": {
+    "media": [
+      {
+        "type": "course",
+        "title": "Conscious Parenting",
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/5bdbdd0e-3bd3-432b-b8cb-3d3556c58c94.jpg?transform=w_1080"
+        },
+        "channel": {
+          "title": "Little Humans"
+        }
+      },
+      {
+        "type": "course",
+        "title": "Raising Kids With Healthy Beliefs",
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/cb8c79d9-af35-4727-9c4c-6e9eee5af1c3.jpg?transform=w_1080"
+        },
+        "channel": {
+          "title": "Little Humans"
+        }
+      },
+      {
+        "type": "course",
+        "title": "Attachment Parenting: Nurturing Our Children",
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/9accb76c-fc05-4455-b20c-a39f947184a7.jpg?transform=w_1080"
+        },
+        "channel": {
+          "title": "Little Humans"
+        }
+      },
+      {
+        "type": "course",
+        "title": "Superparenting For Distracted Kids",
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/2f48bea4-24c8-4561-a984-7fb5f581e104.jpg?transform=w_1080"
+        },
+        "channel": {
+          "title": "Little Humans"
+        }
+      },
+      {
+        "type": "course",
+        "title": "Navigating Loss & Grief",
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/31998524-3925-41c1-b4b3-279d8c833558.jpg?transform=w_1080"
+        },
+        "channel": {
+          "title": "Little Humans"
+        }
+      },
+      {
+        "type": "course",
+        "title": "Recorded Live Calls: Intellectual Life",
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/273a5e20-8088-4e94-8f34-6b0241e93962.jpg?transform=w_1080"
+        },
+        "channel": {
+          "title": "Lifebook Membership"
+        }
+      }
+    ]
+  }
+}
