@@ -14,6 +14,7 @@
         android:minHeight="?android:attr/actionBarSize"
         android:padding="10dp"
         android:text="Channels"
+        android:fontFamily="@font/roboto_black"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
