@@ -1,10 +1,10 @@
 package com.ayokunlepaul.channel
 
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class SaluranApplication : Application() {
+class SaluranApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()

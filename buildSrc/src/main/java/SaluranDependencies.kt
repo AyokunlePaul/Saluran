@@ -37,6 +37,7 @@ object Dependencies {
             const val coreKtx = "1.1.0"
             const val constraintLayout = "2.0.0-beta7"
             const val workManager = "2.2.0"
+            const val multidex = "2.0.1"
         }
 
         const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
@@ -44,6 +45,7 @@ object Dependencies {
         const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${LifeCycle}"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+        const val multidex = "androidx.multidex:multidex:${Versions.multidex}"
         const val workManager = "androidx.work:work-runtime-ktx:${Versions.workManager}"
         const val workManagerRx = "androidx.work:work-rxjava2:${Versions.workManager}"
     }
@@ -231,6 +233,7 @@ fun DependencyHandler.implementApp() {
     add("implementation", Dependencies.Utilities.overscrollDecor)
     add("implementation", Dependencies.Utilities.recyclerAnimator)
     add("implementation", Dependencies.View.shimmerLayout)
+    add("implementation", Dependencies.AndroidX.multidex)
     add("testImplementation", Dependencies.Test.mockk)
     add("testImplementation", Dependencies.Test.junit)
     add("debugImplementation", Dependencies.Test.mockkAndroid)

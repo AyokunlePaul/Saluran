@@ -16,6 +16,7 @@ android {
         targetSdkVersion(Config.Versions.targetSdkVersion)
         versionCode = Config.Versions.versionCode
         versionName = Config.Versions.versionName
+        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
