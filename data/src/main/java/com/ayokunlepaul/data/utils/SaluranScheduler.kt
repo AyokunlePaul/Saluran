@@ -1,4 +1,4 @@
-package com.ayokunlepaul.domain.utils
+package com.ayokunlepaul.data.utils
 
 import io.reactivex.Scheduler
 

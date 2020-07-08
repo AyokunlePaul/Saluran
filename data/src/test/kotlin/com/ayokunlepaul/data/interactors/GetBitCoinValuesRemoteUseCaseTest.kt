@@ -1,7 +1,7 @@
-package com.ayokunlepaul.domain.interactors
+package com.ayokunlepaul.data.interactors
 
-import com.ayokunlepaul.domain.interactors.utils.Creator
-import com.ayokunlepaul.domain.utils.SaluranScheduler
+import com.ayokunlepaul.data.interactors.utils.Creator
+import com.ayokunlepaul.data.utils.SaluranScheduler
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

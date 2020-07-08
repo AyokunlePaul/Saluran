@@ -1,4 +1,4 @@
-package com.ayokunlepaul.domain.interactors.utils
+package com.ayokunlepaul.data.interactors.utils
 
 internal object Creator {
 

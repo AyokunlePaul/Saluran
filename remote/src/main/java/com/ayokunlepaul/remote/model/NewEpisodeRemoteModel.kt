@@ -2,7 +2,7 @@ package com.ayokunlepaul.remote.model
 
 import com.ayokunlepaul.remote.model.base.SingleStringWrapper
 
-data class NewEpisodesRemoteModel(
+data class NewEpisodeRemoteModel(
     val title: String,
     val type: String,
     val coverAsset: SingleStringWrapper,

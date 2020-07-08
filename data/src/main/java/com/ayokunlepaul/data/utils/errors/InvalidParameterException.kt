@@ -1,4 +1,4 @@
-package com.ayokunlepaul.domain.utils.errors
+package com.ayokunlepaul.data.utils.errors
 
 class InvalidParameterException(
     argument: String

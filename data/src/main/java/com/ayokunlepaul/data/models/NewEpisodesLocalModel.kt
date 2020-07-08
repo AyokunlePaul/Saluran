@@ -1,4 +1,4 @@
-package com.ayokunlepaul.domain.models
+package com.ayokunlepaul.data.models
 
 data class NewEpisodeEntity(
     val id: Long,
