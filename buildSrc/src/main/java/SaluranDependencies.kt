@@ -1,8 +1,6 @@
-import org.gradle.api.Plugin
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.kotlin
 import org.gradle.kotlin.dsl.project
-import org.gradle.plugin.use.PluginDependenciesSpec
 
 const val KotlinVersion = "1.3.72"
 const val KtlintVersion = "8.2.0"
@@ -36,7 +34,7 @@ object Dependencies {
     object AndroidX {
         object Versions {
             const val coreKtx = "1.1.0"
-            const val constraintLayout = "2.0.0-beta2"
+            const val constraintLayout = "2.0.0-beta7"
             const val workManager = "2.2.0"
         }
 

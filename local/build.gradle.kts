@@ -16,7 +16,6 @@ android {
         versionCode = Config.Versions.versionCode
         versionName = Config.Versions.versionName
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://api.blockchain.info/\"")
     }
     buildTypes {
         getByName("release") {
