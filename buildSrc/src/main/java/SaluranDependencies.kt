@@ -1,10 +1,13 @@
+import org.gradle.api.Plugin
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.kotlin
 import org.gradle.kotlin.dsl.project
+import org.gradle.plugin.use.PluginDependenciesSpec
 
 const val KotlinVersion = "1.3.72"
 const val KtlintVersion = "8.2.0"
 const val LifeCycle = "2.0.0"
+const val Hilt = "2.28-alpha"
 
 object Config {
     object Versions {
@@ -13,10 +16,8 @@ object Config {
         const val targetSdkVersion = 30
         const val versionName = "1.0.0"
         const val versionCode = 1
-        const val navigation = "2.3.0"
         const val gradle = "3.5.2"
         const val Ktlint = "0.34.2"
-        const val jacoco = "0.8.0"
     }
 
     object Android {
@@ -27,6 +28,7 @@ object Config {
         const val gradle = "com.android.tools.build:gradle:${Versions.gradle}"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$KotlinVersion"
         const val ktlint = "org.jlleitschuh.gradle:ktlint-gradle:$KtlintVersion"
+        const val hilt = "com.google.dagger:hilt-android-gradle-plugin:$Hilt"
     }
 }
 
@@ -71,13 +73,10 @@ object Dependencies {
             const val dagger = "2.24"
         }
 
+        const val hilt = "com.google.dagger:hilt-android:${Hilt}"
+        const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Hilt}"
         const val javax = "javax.inject:javax.inject:${Versions.javaxInject}"
         const val javaxAnnotation = "javax.annotation:jsr250-api:${Versions.javaxAnnotation}"
-        const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
-        const val daggerProcessor = "com.google.dagger:dagger-compiler:${Versions.dagger}"
-        const val daggerAndroid = "com.google.dagger:dagger-android-support:${Versions.dagger}"
-        const val daggerAndroidProcessor =
-            "com.google.dagger:dagger-android-processor:${Versions.dagger}"
     }
 
     object Persistence {
@@ -161,10 +160,8 @@ fun DependencyHandler.inject() {
 }
 
 fun DependencyHandler.implementDI() {
-    add("implementation", Dependencies.DependencyInjection.dagger)
-    add("kapt", Dependencies.DependencyInjection.daggerProcessor)
-    add("implementation", Dependencies.DependencyInjection.daggerAndroid)
-    add("kapt", Dependencies.DependencyInjection.daggerAndroidProcessor)
+    add("implementation", Dependencies.DependencyInjection.hilt)
+    add("kapt", Dependencies.DependencyInjection.hiltCompiler)
 }
 
 fun DependencyHandler.implementWorker() {
@@ -223,8 +220,6 @@ fun DependencyHandler.implementRemote() {
 
 fun DependencyHandler.implementData() {
     add("implementation", kotlin("stdlib-jdk7", KotlinVersion))
-    add("implementation", Dependencies.DependencyInjection.dagger)
-    add("kapt", Dependencies.DependencyInjection.daggerProcessor)
     add("implementation", Dependencies.Test.mockk)
     add("implementation", Dependencies.Test.junit)
     implementAsync()

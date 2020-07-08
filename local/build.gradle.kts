@@ -1,8 +1,12 @@
+import extensions.hilt
+import extensions.kotlinAndroid
+
 plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 android {
     defaultConfig {

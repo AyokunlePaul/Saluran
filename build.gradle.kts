@@ -34,6 +34,7 @@ buildscript {
         classpath(kotlin("gradle-plugin", KotlinVersion))
         classpath(Config.Classpaths.gradle)
         classpath(Config.Classpaths.ktlint)
+        classpath(Config.Classpaths.hilt)
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
     }
