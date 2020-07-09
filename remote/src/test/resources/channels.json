@@ -1,0 +1,213 @@
+{
+  "data": {
+    "channels": [
+      {
+        "title": "Mindvalley Mentoring",
+        "series": [],
+        "mediaCount": 98,
+        "latestMedia": [
+          {
+            "type": "course",
+            "title": "How Journaling Helped Create a $500M Company",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/a90653b8-8475-41a9-925a-3a1bf0e7cd5f.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "The Truth About Water",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/c3b924a1-7e33-4175-9647-95d011b986ba.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "Vishen's Optimized Morning Routine",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/953f74d2-52a9-4769-9369-04849e786bb4.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "What To Eat For A Genius Brain",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/bff42af7-5a7e-46fb-bcda-7eb7dc3fb342.jpg"
+            }
+          },
+          {
+            "type": "course",
+            "title": "How to invest like a Buffett",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/8eb890f6-4d88-48cc-9af5-a207dd90913e.jpg"
+            }
+          },
+          {
+            "type": "course",
+            "title": "How to Nurture Greatness In Your Kids",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/eaa7aad0-3036-43fd-b446-3128b78aaef1.jpg"
+            }
+          },
+          {
+            "type": "course",
+            "title": "A Framework For Spiritual Activism",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/841c723f-2a56-47d3-a96b-3cc6747ffc56.jpg"
+            }
+          },
+          {
+            "type": "course",
+            "title": "How to Live to Be 180",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/1265e870-86e4-45ed-bea3-c09cd6ee8932.jpg"
+            }
+          },
+          {
+            "type": "course",
+            "title": "How to Optimize Your Nutrition",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/9de12ffd-d357-4306-9c58-dbe764849f3d.jpg"
+            }
+          },
+          {
+            "type": "course",
+            "title": "From Suffering to Manifesting",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/abd4378b-7714-488c-a234-29c7e27b0a73.jpg"
+            }
+          },
+          {
+            "type": "course",
+            "title": "How to Live in Awe",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/fc2992cf-bf78-470a-afb8-de444e42c25f.jpg"
+            }
+          },
+          {
+            "type": "course",
+            "title": "The Cure for Loneliness",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/830808f0-e488-49a5-8ac6-960c7b38aa2f.jpg"
+            }
+          }
+        ],
+        "id": "11",
+        "iconAsset": {
+          "thumbnailUrl": "https://edgecastcdn.net/80EC13/public/overmind2/asset/11914f01-ba4a-4d68-9c33-efb34c43ed23/channel-icon-mentoring_thumbnail.png"
+        },
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/8fd5837a-539c-4367-b1af-8579a3e3d461.jpg?transform=w_1080"
+        }
+      },
+      {
+        "title": "Unlimited Abundance",
+        "slug": "unlimited_abundance",
+        "series": [
+          {
+            "title": "Unlimited Abundance Program",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/34b459cd-5a5c-400e-9e02-ae1481a1a87b.jpg?transform=w_1080"
+            }
+          },
+          {
+            "title": "Bonuses for Unlimited Abundance",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/4bdbc2ce-d9cd-47cc-8891-4252a8bf0afc.jpg?transform=w_1080"
+            }
+          }
+        ],
+        "mediaCount": 59,
+        "latestMedia": [
+          {
+            "type": "course",
+            "title": "Introduction Video",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/d3225076-45b6-4ad6-b0a7-2316b26e6676.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "1. Clearing Resistance",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/a6be0a22-6538-466c-80d8-bfcb6ce94b81.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "2. Clearing Doubt and Fear",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/5c310335-073b-47db-aee8-2c93095c8f45.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "3. Clearing the Fear of Change",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/d3de2291-b684-4ea8-ab71-956efdd1a18e.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "4. Clearing Money Zapping Decisions",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/ded6292a-9b07-4dfa-a46d-5e68419fa391.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "5. Clearing Fear of Growth",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/929012ab-5be4-45d3-90f0-bfa216715d5c.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "6. Clearing Fear of Success",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/6581c64d-fafc-4c35-ac4c-189f3f321ce7.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "7. Clearing Fear of Rejection",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/589ece85-d0f5-4542-83ce-00179ec4ba6d.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "8. Clearing Fear of Numbers",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/2ee7362a-402b-4030-8351-fa7dcbb96d1f.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "9. Clearing Indecision",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/f44f9c56-1d46-4546-8d19-10b30d1c0899.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "10. Clearing Feeling Stuck",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/362d5288-ca0c-4707-bc71-edba545508fe.jpg?transform=w_1080"
+            }
+          },
+          {
+            "type": "course",
+            "title": "11. Getting Clear on Your Values",
+            "coverAsset": {
+              "url": "https://assets.mindvalley.com/api/v1/assets/f98da5b1-4389-4db0-99ef-dbfe7ad654b1.jpg?transform=w_1080"
+            }
+          }
+        ],
+        "iconAsset": null,
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/aa833424-e1b7-463b-b1a1-f7faa222f8d0.jpg?transform=w_1080"
+        }
+      }
+    ]
+  }
+}
