@@ -5,7 +5,7 @@ import com.ayokunlepaul.data.BaseMapper
 import com.ayokunlepaul.data.models.ChannelEntity
 import javax.inject.Inject
 
-class ChannelModelMapper @Inject constructor(
+class ChannelMapper @Inject constructor(
     private val channelEpisodeMapper: ChannelEpisodeMapper
 ) : BaseMapper<Channel, ChannelEntity> {
 

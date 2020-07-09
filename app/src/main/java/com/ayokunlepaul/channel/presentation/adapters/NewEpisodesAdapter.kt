@@ -4,8 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ayokunlepaul.channel.models.Episode
 import com.ayokunlepaul.channel.utils.diffutils.AutoUpdateRecyclerView
-import com.ayokunlepaul.channel.viewholders.NewEpisodeShimmerViewHolder
-import com.ayokunlepaul.channel.viewholders.NewEpisodeViewHolder
+import com.ayokunlepaul.channel.presentation.viewholders.NewEpisodeViewHolder
 import kotlin.properties.Delegates
 
 class NewEpisodesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), AutoUpdateRecyclerView {
@@ -17,17 +16,14 @@ class NewEpisodesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Auto
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
-        if (viewType == VIEW_TYPE_SHIMMER) {
-            NewEpisodeShimmerViewHolder.get(parent)
-        } else NewEpisodeViewHolder.get(parent)
+        NewEpisodeViewHolder.get(parent)
 
-    override fun getItemViewType(position: Int): Int = if (episodes.isEmpty()) VIEW_TYPE_SHIMMER
-    else VIEW_TYPE_EPISODE
-
-    override fun getItemCount(): Int = if (episodes.isEmpty()) 5 else episodes.size
+    override fun getItemCount(): Int = episodes.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
+        when (holder) {
+            is NewEpisodeViewHolder -> holder.bind(episodes[position])
+        }
     }
 
     fun setNewEpisodes(data: List<Episode>, isFirstBatch: Boolean = false) {
