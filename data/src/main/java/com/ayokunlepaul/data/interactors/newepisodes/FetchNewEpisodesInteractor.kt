@@ -8,12 +8,17 @@ import com.ayokunlepaul.data.utils.SaluranScheduler
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class FetchNewEpisodeLocalInteractor @Inject constructor(
+class FetchNewEpisodesInteractor @Inject constructor(
     scheduler: SaluranScheduler,
-    @LocalRepositoryImpl private val newEpisodesRepository: NewEpisodesRepository
+    @LocalRepositoryImpl private val repository: NewEpisodesRepository,
+    private val newEpisodeLocalInteractor: FetchNewEpisodeLocalInteractor,
+    private val newEpisodesRemoteInteractor: FetchNewEpisodesRemoteInteractor
 ) : ObservableInteractor<Nothing, List<NewEpisodeEntity>>(scheduler) {
 
     override fun buildUseCaseObservable(parameter: Nothing?): Observable<List<NewEpisodeEntity>> {
-        return newEpisodesRepository.getNewEpisodes()
+        return if (repository.hasSavedNewEpisodesBefore) newEpisodeLocalInteractor.buildUseCaseObservable(
+            parameter
+        )
+        else newEpisodesRemoteInteractor.buildUseCaseObservable(parameter)
     }
 }
