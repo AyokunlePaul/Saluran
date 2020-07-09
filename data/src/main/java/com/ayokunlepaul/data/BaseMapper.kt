@@ -8,9 +8,9 @@ interface BaseMapper<MODEL, ENTITY> {
 
     fun toEntity(value: MODEL): ENTITY
 
-    fun toModelList(values: List<ENTITY>) = values.map { toModel(it) }
+    fun toModelList(values: List<ENTITY>?) = safeList(values).map { toModel(it) }
 
-    fun toEntityList(values: List<MODEL>) = values.map { toEntity(it) }
+    fun toEntityList(values: List<MODEL>?) = safeList(values).map { toEntity(it) }
 
     fun safeString(value: String?) = value ?: ""
 

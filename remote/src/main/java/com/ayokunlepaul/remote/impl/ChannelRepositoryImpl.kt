@@ -18,7 +18,7 @@ class ChannelRepositoryImpl @Inject constructor(
     override fun getAllChannels(): Observable<List<ChannelEntity>> {
         return service.getAllChannels().executeOnError().flatMap {
             channelRepository.saveChannels(
-                channelRemoteModelMapper.toEntityList(it)
+                channelRemoteModelMapper.toEntityList(it.data.channels)
             )
         }.flatMapObservable {
             channelRepository.hasFetchedChannelBefore = true

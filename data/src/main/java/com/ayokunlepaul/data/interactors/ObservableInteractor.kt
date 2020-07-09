@@ -5,7 +5,7 @@ import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 
-abstract class ObservableInteractor<in Parameter, Response>(
+abstract class ObservableInteractor<Parameter, Response>(
     private val scheduler: SaluranScheduler
 ) {
 

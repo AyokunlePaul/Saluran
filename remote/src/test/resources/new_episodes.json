@@ -1,0 +1,26 @@
+{
+  "data": {
+    "media": [
+      {
+        "type": "course",
+        "title": "Conscious Parenting",
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/5bdbdd0e-3bd3-432b-b8cb-3d3556c58c94.jpg?transform=w_1080"
+        },
+        "channel": {
+          "title": "Little Humans"
+        }
+      },
+      {
+        "type": "course",
+        "title": "Raising Kids With Healthy Beliefs",
+        "coverAsset": {
+          "url": "https://assets.mindvalley.com/api/v1/assets/cb8c79d9-af35-4727-9c4c-6e9eee5af1c3.jpg?transform=w_1080"
+        },
+        "channel": {
+          "title": "Little Humans"
+        }
+      }
+    ]
+  }
+}

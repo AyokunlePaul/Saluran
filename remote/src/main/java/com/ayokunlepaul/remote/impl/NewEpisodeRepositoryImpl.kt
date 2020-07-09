@@ -18,7 +18,7 @@ class NewEpisodeRepositoryImpl @Inject constructor(
 
     override fun getNewEpisodes(): Observable<List<EpisodeEntity>> {
         return service.getNewEpisodes().executeOnError().flatMap {
-            repository.saveNewEpisodes(mapper.toEntityList(it))
+            repository.saveNewEpisodes(mapper.toEntityList(it.data.media))
         }.flatMapObservable {
             repository.hasSavedNewEpisodesBefore = true
             repository.getNewEpisodes()

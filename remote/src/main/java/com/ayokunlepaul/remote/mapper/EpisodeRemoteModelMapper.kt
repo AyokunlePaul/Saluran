@@ -9,10 +9,10 @@ class EpisodeRemoteModelMapper : BaseMapper<EpisodeRemoteModel, EpisodeEntity> {
     override fun toEntity(value: EpisodeRemoteModel): EpisodeEntity {
         return EpisodeEntity(
             id = 0,
-            title = value.title,
-            channelTitle = value.channel.data,
-            coverAssetUrl = value.coverAsset.data,
-            type = value.type
+            title = safeString(value.title),
+            channelTitle = safeString(value.channel?.data),
+            coverAssetUrl = safeString(value.coverAsset?.data),
+            type = safeString(value.type)
         )
     }
 }
