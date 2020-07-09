@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,7 +21,7 @@ class OkhttpClientModule {
 
     @Provides
     @Singleton
-    fun provideFile(context: Context): File {
+    fun provideFile(@ApplicationContext context: Context): File {
         return File(context.cacheDir, SaluranConstants.OKHTTP_CACHE)
     }
 

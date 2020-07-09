@@ -2,10 +2,12 @@ package com.ayokunlepaul.local.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.ayokunlepaul.local.models.ChannelLocalModel
 import com.ayokunlepaul.local.models.EpisodeLocalModel
 import com.ayokunlepaul.local.room.daos.ChannelsDao
 import com.ayokunlepaul.local.room.daos.NewEpisodesDao
+import com.ayokunlepaul.local.room.typeconverters.ChannelEpisodeTypeConverter
 import com.ayokunlepaul.local.utils.SaluranLocalConstants
 
 @Database(
@@ -15,6 +17,7 @@ import com.ayokunlepaul.local.utils.SaluranLocalConstants
         EpisodeLocalModel::class, ChannelLocalModel::class
     ]
 )
+@TypeConverters(ChannelEpisodeTypeConverter::class)
 abstract class SaluranDatabase : RoomDatabase() {
 
     abstract fun getNewEpisodesDao(): NewEpisodesDao

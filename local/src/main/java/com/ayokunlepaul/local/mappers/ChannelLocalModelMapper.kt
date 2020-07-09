@@ -17,7 +17,8 @@ class ChannelLocalModelMapper @Inject constructor(
             iconAssetUrl = value.iconAssetUrl,
             latestMedia = channelEpisodeLocalMapper.toEntityList(value.latestMedia),
             mediaCount = value.mediaCount,
-            series = channelEpisodeLocalMapper.toEntityList(value.series)
+            series = channelEpisodeLocalMapper.toEntityList(value.series),
+            slug = value.slug
         )
     }
 
@@ -30,7 +31,8 @@ class ChannelLocalModelMapper @Inject constructor(
             iconAssetUrl = value.iconAssetUrl,
             latestMedia = channelEpisodeLocalMapper.toModelList(value.latestMedia),
             mediaCount = value.mediaCount,
-            series = channelEpisodeLocalMapper.toModelList(value.series)
+            series = channelEpisodeLocalMapper.toModelList(value.series),
+            slug = value.slug
         )
     }
 }

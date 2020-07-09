@@ -28,6 +28,11 @@ class ChannelRepositoryImpl @Inject constructor(
     }
 
     override fun saveChannels(value: List<ChannelEntity>): Single<Int> {
-        return channelsDao.insertChannels(channelLocalModelMapper.toModelList(value))
+        return Single.fromCallable {
+            channelsDao.insertChannels(
+                channelLocalModelMapper.toModelList(value)
+            )
+            value.size
+        }
     }
 }

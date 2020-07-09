@@ -1,4 +1,4 @@
-package com.ayokunlepaul.channel.viewholders
+package com.ayokunlepaul.channel.presentation.viewholders
 
 import android.view.LayoutInflater
 import android.view.View

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c44941c258f10d2d20b7caf625c2f35e",
+    "identityHash": "b12a9e75152a3e94224352d5dcd6058e",
     "entities": [
       {
         "tableName": "new_episodes",
@@ -47,12 +47,80 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "channels",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `slug` TEXT NOT NULL, `mediaCount` INTEGER NOT NULL, `channelId` TEXT NOT NULL, `iconAssetUrl` TEXT NOT NULL, `coverAssetUrl` TEXT NOT NULL, `latestMedia` TEXT NOT NULL, `series` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "slug",
+            "columnName": "slug",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mediaCount",
+            "columnName": "mediaCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "channelId",
+            "columnName": "channelId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "iconAssetUrl",
+            "columnName": "iconAssetUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "coverAssetUrl",
+            "columnName": "coverAssetUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latestMedia",
+            "columnName": "latestMedia",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "series",
+            "columnName": "series",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c44941c258f10d2d20b7caf625c2f35e')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b12a9e75152a3e94224352d5dcd6058e')"
     ]
   }
 }

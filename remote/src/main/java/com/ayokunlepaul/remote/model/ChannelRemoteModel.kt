@@ -4,6 +4,7 @@ import com.ayokunlepaul.remote.model.base.SingleStringWrapper
 
 data class ChannelRemoteModel(
     val title: String?,
+    val slug: String?,
     val mediaCount: Int?,
     val id: String?,
     val iconAsset: SingleStringWrapper?,

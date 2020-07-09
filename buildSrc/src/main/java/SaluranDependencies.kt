@@ -1,7 +1,6 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.kotlin
 import org.gradle.kotlin.dsl.project
-import java.util.*
 
 const val KotlinVersion = "1.3.72"
 const val KtlintVersion = "8.2.0"
@@ -15,7 +14,7 @@ object Config {
         const val targetSdkVersion = 30
         const val versionName = "1.0.0"
         const val versionCode = 1
-        const val gradle = "3.5.2"
+        const val gradle = "4.0.0"
         const val Ktlint = "0.34.2"
     }
 
@@ -41,6 +40,7 @@ object Dependencies {
         }
 
         const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
+        const val activityKtx = "androidx.activity:activity-ktx:${Versions.coreKtx}"
         const val lifecycle = "androidx.lifecycle:lifecycle-extensions:${LifeCycle}"
         const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${LifeCycle}"
         const val constraintLayout =
@@ -71,11 +71,13 @@ object Dependencies {
         object Versions {
             const val javaxAnnotation = "1.0"
             const val javaxInject = "1"
-            const val dagger = "2.24"
+            const val hiltJetpack = "1.0.0-alpha01"
         }
 
         const val hilt = "com.google.dagger:hilt-android:${Hilt}"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Hilt}"
+        const val hiltJetpack = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltJetpack}"
+        const val hiltJetpackCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltJetpack}"
         const val javax = "javax.inject:javax.inject:${Versions.javaxInject}"
         const val javaxAnnotation = "javax.annotation:jsr250-api:${Versions.javaxAnnotation}"
     }
@@ -171,8 +173,8 @@ fun DependencyHandler.implementWorker() {
 }
 
 fun DependencyHandler.implementRoom() {
-    add("implementation", Dependencies.Persistence.room)
-    add("implementation", Dependencies.Persistence.roomRxJava)
+    add("api", Dependencies.Persistence.room)
+    add("api", Dependencies.Persistence.roomRxJava)
     add("kapt", Dependencies.Persistence.roomCompiler)
     add("testImplementation", Dependencies.Persistence.roomTesting)
 }
@@ -194,6 +196,7 @@ fun DependencyHandler.implementAsync() {
 
 fun DependencyHandler.implementAndroidX() {
     add("implementation", Dependencies.AndroidX.coreKtx)
+    add("implementation", Dependencies.AndroidX.activityKtx)
     add("implementation", Dependencies.AndroidX.constraintLayout)
     add("implementation", Dependencies.AndroidX.lifecycle)
     add("kapt", Dependencies.AndroidX.lifecycleCompiler)
@@ -204,6 +207,11 @@ fun DependencyHandler.implementLocal() {
     implementDI()
     implementRoom()
     add("implementation", Dependencies.AndroidX.coreKtx)
+    add("implementation", Dependencies.Utilities.gson)
+    add("testImplementation", Dependencies.Test.mockk)
+    add("testImplementation", Dependencies.Test.junit)
+    add("androidTestImplementation", Dependencies.Test.runner)
+    add("androidTestImplementation", Dependencies.Test.testExt)
     add("implementation", kotlin("stdlib-jdk7", KotlinVersion))
     add("implementation", project(":data"))
 }
@@ -213,8 +221,8 @@ fun DependencyHandler.implementRemote() {
     implementRetrofit()
     add("implementation", Dependencies.Utilities.timber)
     add("implementation", Dependencies.Async.rxAndroid)
-    add("implementation", Dependencies.Test.mockk)
-    add("implementation", Dependencies.Test.junit)
+    add("testImplementation", Dependencies.Test.mockk)
+    add("testImplementation", Dependencies.Test.junit)
     add("implementation", kotlin("stdlib-jdk7", KotlinVersion))
     add("implementation", project(":data"))
 }
@@ -229,6 +237,11 @@ fun DependencyHandler.implementData() {
 
 fun DependencyHandler.implementApp() {
     add("implementation", kotlin("stdlib-jdk7", KotlinVersion))
+    add("implementation", project(":local"))
+    add("implementation", project(":remote"))
+    add("implementation", project(":data"))
+    add("implementation", Dependencies.DependencyInjection.hiltJetpack)
+    add("kapt", Dependencies.DependencyInjection.hiltJetpackCompiler)
     add("implementation", Dependencies.Utilities.timber)
     add("implementation", Dependencies.Utilities.overscrollDecor)
     add("implementation", Dependencies.Utilities.recyclerAnimator)

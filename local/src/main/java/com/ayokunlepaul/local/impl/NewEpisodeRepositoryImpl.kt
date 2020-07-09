@@ -29,6 +29,11 @@ class NewEpisodeRepositoryImpl @Inject constructor(
     }
 
     override fun saveNewEpisodes(value: List<EpisodeEntity>): Single<Int> {
-        return newEpisodesDao.insertNewEpisodes(episodeLocalModelMapper.toModelList(value))
+        return Single.fromCallable<Int> {
+            newEpisodesDao.insertNewEpisodes(
+                episodeLocalModelMapper.toModelList(value)
+            )
+            value.size
+        }
     }
 }

@@ -15,7 +15,7 @@ interface ChannelsDao {
     fun insertChannel(value: ChannelLocalModel)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertChannels(value: List<ChannelLocalModel>): Single<Int>
+    fun insertChannels(value: List<ChannelLocalModel>)
 
     @Query("SELECT * FROM channels")
     fun getAllChannels(): Observable<List<ChannelLocalModel>>

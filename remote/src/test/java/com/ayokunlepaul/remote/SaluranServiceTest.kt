@@ -1,7 +1,5 @@
 package com.ayokunlepaul.remote
 
-import com.ayokunlepaul.remote.model.MediaRemoteModel
-import com.ayokunlepaul.remote.model.base.BaseRemoteModel
 import com.ayokunlepaul.remote.services.SaluranService
 import com.ayokunlepaul.remote.utils.JsonLoader
 import com.ayokunlepaul.remote.utils.okhttp
@@ -60,4 +58,20 @@ class SaluranServiceTest {
             }.assertNoErrors()
     }
 
+    @Test
+    fun `test that channels are returned accurately`() {
+        val newEpisodesJson = JsonLoader.getJson("channels.json")
+        val response =
+            MockResponse().setResponseCode(HttpURLConnection.HTTP_OK).setBody(newEpisodesJson)
+        mockWebServer.enqueue(response)
+
+        service.getAllChannels().test()
+            .assertComplete()
+            .assertValueCount(1)
+            .assertValue {
+                it.data.channels?.size == 2
+            }.assertValue {
+                !it.data.channels?.get(1)?.slug.isNullOrBlank()
+            }.assertNoErrors()
+    }
 }

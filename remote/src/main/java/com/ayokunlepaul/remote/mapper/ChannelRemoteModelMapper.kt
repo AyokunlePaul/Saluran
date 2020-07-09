@@ -12,6 +12,7 @@ class ChannelRemoteModelMapper @Inject constructor(
     override fun toEntity(value: ChannelRemoteModel): ChannelEntity {
         return ChannelEntity(
             channelId = safeString(value.id),
+            slug = safeString(value.slug),
             title = safeString(value.title),
             coverAssetUrl = safeString(value.coverAsset?.data),
             iconAssetUrl = safeString(value.iconAsset?.data),

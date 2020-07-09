@@ -3,8 +3,10 @@ package com.ayokunlepaul.remote.mapper
 import com.ayokunlepaul.data.BaseMapper
 import com.ayokunlepaul.data.models.EpisodeEntity
 import com.ayokunlepaul.remote.model.EpisodeRemoteModel
+import javax.inject.Inject
 
-class EpisodeRemoteModelMapper : BaseMapper<EpisodeRemoteModel, EpisodeEntity> {
+class EpisodeRemoteModelMapper @Inject constructor() :
+    BaseMapper<EpisodeRemoteModel, EpisodeEntity> {
 
     override fun toEntity(value: EpisodeRemoteModel): EpisodeEntity {
         return EpisodeEntity(

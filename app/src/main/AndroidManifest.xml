@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:name=".SaluranApplication"
         android:theme="@style/Theme.Channel">
-        <activity android:name=".MainActivity">
+        <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

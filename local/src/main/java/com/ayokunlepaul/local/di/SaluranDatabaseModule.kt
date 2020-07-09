@@ -12,13 +12,13 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(ApplicationComponent::class)
-class SaluranDatabaseModule(
-    @ApplicationContext private val context: Context
-) {
+class SaluranDatabaseModule {
 
     @Provides
     @Singleton
-    internal fun provideSaluranDatabase(): SaluranDatabase {
+    internal fun provideSaluranDatabase(
+        @ApplicationContext context: Context
+    ): SaluranDatabase {
         return database(context) {
             allowMainThreadQueries() // TODO: 08/07/2020 This line should be removed!
             fallbackToDestructiveMigration()

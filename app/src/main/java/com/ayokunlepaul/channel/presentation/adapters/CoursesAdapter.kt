@@ -1,4 +1,4 @@
-package com.ayokunlepaul.channel.adapters
+package com.ayokunlepaul.channel.presentation.adapters
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

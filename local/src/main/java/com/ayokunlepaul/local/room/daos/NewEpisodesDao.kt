@@ -15,7 +15,7 @@ interface NewEpisodesDao {
     fun insertNewEpisode(value: EpisodeLocalModel)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNewEpisodes(value: List<EpisodeLocalModel>): Single<Int>
+    fun insertNewEpisodes(value: List<EpisodeLocalModel>)
 
     @Query("SELECT * FROM new_episodes")
     fun getAllNewEpisodes(): Observable<List<EpisodeLocalModel>>
