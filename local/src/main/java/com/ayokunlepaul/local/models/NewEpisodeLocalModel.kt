@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "new_episodes")
-data class NewEpisodesLocalModel (
+data class NewEpisodeLocalModel (
     @PrimaryKey(autoGenerate = true) val id: Long,
     val type: String,
     val title: String,

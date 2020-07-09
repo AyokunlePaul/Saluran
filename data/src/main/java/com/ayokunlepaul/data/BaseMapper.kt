@@ -1,10 +1,10 @@
 package com.ayokunlepaul.data
 
-import com.ayokunlepaul.data.utils.errors.InvalidModuleException
+import com.ayokunlepaul.data.utils.errors.IllegalModuleAccessException
 
 interface BaseMapper<MODEL, ENTITY> {
 
-    fun toModel(value: ENTITY): MODEL = throw InvalidModuleException()
+    fun toModel(value: ENTITY): MODEL = throw IllegalModuleAccessException()
 
     fun toEntity(value: MODEL): ENTITY
 

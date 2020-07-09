@@ -2,6 +2,7 @@ package com.ayokunlepaul.remote.impl
 
 import com.ayokunlepaul.data.models.NewEpisodeEntity
 import com.ayokunlepaul.data.repository.NewEpisodesRepository
+import com.ayokunlepaul.data.utils.errors.IllegalModuleAccessException
 import com.ayokunlepaul.remote.mapper.NewEpisodeRemoteModelMapper
 import com.ayokunlepaul.remote.services.SaluranService
 import com.ayokunlepaul.remote.utils.executeOnError
@@ -20,4 +21,8 @@ class NewEpisodesRepositoryImpl @Inject constructor(
             )
         }
     }
+
+    override var hasSavedNewEpisodesBefore: Boolean
+        get() = throw IllegalModuleAccessException()
+        set(value) {}
 }

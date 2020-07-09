@@ -4,18 +4,18 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.ayokunlepaul.local.models.NewEpisodesLocalModel
+import com.ayokunlepaul.local.models.NewEpisodeLocalModel
 import io.reactivex.Observable
 
 @Dao
 interface NewEpisodesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNewEpisode(value: NewEpisodesLocalModel)
+    fun insertNewEpisode(value: NewEpisodeLocalModel)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertNewEpisodes(value: List<NewEpisodesLocalModel>)
+    fun insertNewEpisodes(value: List<NewEpisodeLocalModel>)
 
     @Query("SELECT * FROM new_episodes")
-    fun getAllNewEpisodes(): Observable<List<NewEpisodesLocalModel>>
+    fun getAllNewEpisodes(): Observable<List<NewEpisodeLocalModel>>
 }

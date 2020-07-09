@@ -5,5 +5,7 @@ import io.reactivex.Observable
 
 interface NewEpisodesRepository {
 
+    var hasSavedNewEpisodesBefore: Boolean
+
     fun getNewEpisodes(): Observable<List<NewEpisodeEntity>>
 }
