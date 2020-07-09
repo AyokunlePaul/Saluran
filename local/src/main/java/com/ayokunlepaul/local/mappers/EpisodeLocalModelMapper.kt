@@ -1,13 +1,13 @@
 package com.ayokunlepaul.local.mappers
 
 import com.ayokunlepaul.data.BaseMapper
-import com.ayokunlepaul.data.models.NewEpisodeEntity
-import com.ayokunlepaul.local.models.NewEpisodeLocalModel
+import com.ayokunlepaul.data.models.EpisodeEntity
+import com.ayokunlepaul.local.models.EpisodeLocalModel
 
-class NewEpisodeLocalModelMapper : BaseMapper<NewEpisodeLocalModel, NewEpisodeEntity> {
+class EpisodeLocalModelMapper : BaseMapper<EpisodeLocalModel, EpisodeEntity> {
 
-    override fun toEntity(value: NewEpisodeLocalModel): NewEpisodeEntity {
-        return NewEpisodeEntity(
+    override fun toEntity(value: EpisodeLocalModel): EpisodeEntity {
+        return EpisodeEntity(
             id = 0,
             title = value.title,
             channelTitle = value.channelTitle,
@@ -16,8 +16,8 @@ class NewEpisodeLocalModelMapper : BaseMapper<NewEpisodeLocalModel, NewEpisodeEn
         )
     }
 
-    override fun toModel(value: NewEpisodeEntity): NewEpisodeLocalModel {
-        return NewEpisodeLocalModel(
+    override fun toModel(value: EpisodeEntity): EpisodeLocalModel {
+        return EpisodeLocalModel(
             id = 0,
             title = value.title,
             channelTitle = value.channelTitle,

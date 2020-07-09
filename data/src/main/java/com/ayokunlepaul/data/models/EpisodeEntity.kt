@@ -1,6 +1,6 @@
 package com.ayokunlepaul.data.models
 
-data class NewEpisodeEntity(
+data class EpisodeEntity(
     val id: Long,
     val type: String,
     val title: String,

@@ -1,21 +1,20 @@
 package com.ayokunlepaul.local.impl
 
-import com.ayokunlepaul.data.models.NewEpisodeEntity
-import com.ayokunlepaul.data.repository.NewEpisodesRepository
-import com.ayokunlepaul.local.mappers.NewEpisodeLocalModelMapper
+import com.ayokunlepaul.data.models.EpisodeEntity
+import com.ayokunlepaul.data.repository.NewEpisodeRepository
+import com.ayokunlepaul.local.mappers.EpisodeLocalModelMapper
 import com.ayokunlepaul.local.pref.SaluranSharedPref
 import com.ayokunlepaul.local.room.daos.NewEpisodesDao
 import com.ayokunlepaul.local.utils.SaluranLocalConstants
-import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject
 
-class NewEpisodesRepositoryImpl @Inject constructor(
+class NewEpisodeRepositoryImpl @Inject constructor(
     private val sharedPref: SaluranSharedPref,
     private val newEpisodesDao: NewEpisodesDao,
-    private val newEpisodeLocalModelMapper: NewEpisodeLocalModelMapper
-) : NewEpisodesRepository {
+    private val episodeLocalModelMapper: EpisodeLocalModelMapper
+) : NewEpisodeRepository {
 
     override var hasSavedNewEpisodesBefore: Boolean
         get() = sharedPref.getBoolean(SaluranLocalConstants.HAS_FETCHED_NEW_EPISODES_BEFORE)
@@ -23,13 +22,13 @@ class NewEpisodesRepositoryImpl @Inject constructor(
             sharedPref.setBoolean(SaluranLocalConstants.HAS_FETCHED_NEW_EPISODES_BEFORE, value)
         }
 
-    override fun getNewEpisodes(): Observable<List<NewEpisodeEntity>> {
+    override fun getNewEpisodes(): Observable<List<EpisodeEntity>> {
         return newEpisodesDao.getAllNewEpisodes().map {
-            newEpisodeLocalModelMapper.toEntityList(it)
+            episodeLocalModelMapper.toEntityList(it)
         }
     }
 
-    override fun saveNewEpisodes(value: List<NewEpisodeEntity>): Single<Int> {
-        return newEpisodesDao.insertNewEpisodes(newEpisodeLocalModelMapper.toModelList(value))
+    override fun saveNewEpisodes(value: List<EpisodeEntity>): Single<Int> {
+        return newEpisodesDao.insertNewEpisodes(episodeLocalModelMapper.toModelList(value))
     }
 }

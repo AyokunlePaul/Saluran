@@ -1,8 +1,10 @@
 package com.ayokunlepaul.remote.di
 
 import com.ayokunlepaul.data.di.RemoteRepositoryImpl
-import com.ayokunlepaul.data.repository.NewEpisodesRepository
-import com.ayokunlepaul.remote.impl.NewEpisodesRepositoryImpl
+import com.ayokunlepaul.data.repository.ChannelRepository
+import com.ayokunlepaul.data.repository.NewEpisodeRepository
+import com.ayokunlepaul.remote.impl.ChannelRepositoryImpl
+import com.ayokunlepaul.remote.impl.NewEpisodeRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,6 +19,13 @@ abstract class RemoteImplModule {
     @Singleton
     @RemoteRepositoryImpl
     internal abstract fun bindNewEpisodesRepository(
-        impl: NewEpisodesRepositoryImpl
-    ): NewEpisodesRepository
+        impl: NewEpisodeRepositoryImpl
+    ): NewEpisodeRepository
+
+    @Binds
+    @Singleton
+    @RemoteRepositoryImpl
+    internal abstract fun bindChannelRepository(
+        impl: ChannelRepositoryImpl
+    ): ChannelRepository
 }
