@@ -2,7 +2,7 @@ package com.ayokunlepaul.remote.impl
 
 import com.ayokunlepaul.data.di.LocalRepositoryImpl
 import com.ayokunlepaul.data.models.EpisodeEntity
-import com.ayokunlepaul.data.repository.NewEpisodeRepository
+import com.ayokunlepaul.data.repository.NewEpisodesRepository
 import com.ayokunlepaul.data.utils.errors.IllegalModuleAccessException
 import com.ayokunlepaul.remote.mapper.EpisodeRemoteModelMapper
 import com.ayokunlepaul.remote.services.SaluranService
@@ -10,11 +10,11 @@ import com.ayokunlepaul.remote.utils.executeOnError
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class NewEpisodeRepositoryImpl @Inject constructor(
+class NewEpisodesRepositoryImpl @Inject constructor(
     private val service: SaluranService,
     private val mapper: EpisodeRemoteModelMapper,
-    @LocalRepositoryImpl private val repository: NewEpisodeRepository
-) : NewEpisodeRepository {
+    @LocalRepositoryImpl private val repository: NewEpisodesRepository
+) : NewEpisodesRepository {
 
     override fun getNewEpisodes(): Observable<List<EpisodeEntity>> {
         return service.getNewEpisodes().executeOnError().flatMap {

@@ -1,7 +1,7 @@
 package com.ayokunlepaul.remote.di
 
 import android.content.Context
-import com.ayokunlepaul.remote.utils.SaluranConstants
+import com.ayokunlepaul.remote.utils.SaluranRemoteConstants
 import com.ayokunlepaul.remote.utils.okhttp
 import dagger.Module
 import dagger.Provides
@@ -22,7 +22,7 @@ class OkhttpClientModule {
     @Provides
     @Singleton
     fun provideFile(@ApplicationContext context: Context): File {
-        return File(context.cacheDir, SaluranConstants.OKHTTP_CACHE)
+        return File(context.cacheDir, SaluranRemoteConstants.OKHTTP_CACHE)
     }
 
     @Provides

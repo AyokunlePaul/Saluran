@@ -5,7 +5,7 @@ import com.ayokunlepaul.data.utils.errors.IllegalModuleAccessException
 import io.reactivex.Observable
 import io.reactivex.Single
 
-interface ChannelRepository {
+interface ChannelsRepository {
 
     fun getAllChannels(): Observable<List<ChannelEntity>>
 

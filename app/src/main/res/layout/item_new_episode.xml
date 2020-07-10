@@ -12,7 +12,7 @@
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        app:cardElevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:rippleColor="@android:color/darker_gray">
@@ -20,6 +20,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/new_episode_cover_asset"
             android:layout_width="150dp"
+            android:scaleType="fitXY"
             android:layout_height="200dp"
             app:srcCompat="@drawable/ic_broken_image" />
 

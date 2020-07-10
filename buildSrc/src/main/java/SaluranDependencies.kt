@@ -10,8 +10,8 @@ const val Hilt = "2.28-alpha"
 object Config {
     object Versions {
         const val minSdkVersion = 19
-        const val compileSdkVersion = 30
-        const val targetSdkVersion = 30
+        const val compileSdkVersion = 29
+        const val targetSdkVersion = 29
         const val versionName = "1.0.0"
         const val versionCode = 1
         const val gradle = "4.0.0"
@@ -105,7 +105,6 @@ object Dependencies {
             "com.google.android.material:material:${Versions.materialComponent}"
         const val rxAnimation = "com.mikhaellopez:rxanimation:${Versions.rxAnimation}"
         const val shimmerLayout = "com.facebook.shimmer:shimmer:${Versions.shimmerLayout}"
-        const val mikhaellopez = "com.mikhaellopez:circularimageview:${Versions.mikhaellopez}"
     }
 
     object Utilities {
@@ -114,6 +113,7 @@ object Dependencies {
             const val gson = "2.8.5"
             const val timber = "4.7.1"
             const val overscrollDecor = "1.0.4"
+            const val glide = "4.11.0"
         }
 
         const val recyclerAnimator =
@@ -122,6 +122,8 @@ object Dependencies {
         const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
         const val overscrollDecor =
             "me.everything:overscroll-decor-android:${Versions.overscrollDecor}"
+        const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+        const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
     }
 
     object Async {
@@ -244,6 +246,8 @@ fun DependencyHandler.implementApp() {
     add("kapt", Dependencies.DependencyInjection.hiltJetpackCompiler)
     add("implementation", Dependencies.Utilities.timber)
     add("implementation", Dependencies.Utilities.overscrollDecor)
+    add("implementation", Dependencies.Utilities.glide)
+    add("kapt", Dependencies.Utilities.glideCompiler)
     add("implementation", Dependencies.Utilities.recyclerAnimator)
     add("implementation", Dependencies.View.shimmerLayout)
     add("implementation", Dependencies.AndroidX.multidex)

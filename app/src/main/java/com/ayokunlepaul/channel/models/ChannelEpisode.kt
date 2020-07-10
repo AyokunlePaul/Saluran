@@ -6,6 +6,16 @@ data class ChannelEpisode(
     val coverAssetUrl: String
 ) {
 
+    fun toEpisode(): Episode {
+        return Episode(
+            title = title,
+            coverAssetUrl = coverAssetUrl,
+            id = 0,
+            channelTitle = "",
+            type = type
+        )
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

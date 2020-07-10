@@ -11,6 +11,8 @@ data class Channel(
     val series: List<ChannelEpisode>
 ) {
 
+    val isSeries = series.isNotEmpty()
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

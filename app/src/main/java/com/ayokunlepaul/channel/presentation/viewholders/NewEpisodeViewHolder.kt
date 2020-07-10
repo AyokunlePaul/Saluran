@@ -4,20 +4,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.ayokunlepaul.channel.R
 import com.ayokunlepaul.channel.models.Episode
+import com.bumptech.glide.Glide
 
 class NewEpisodeViewHolder(
     private val rootView: View
 ) : RecyclerView.ViewHolder(rootView) {
 
-    fun bind(value: Episode) {
+    fun bindNewEpisode(value: Episode) {
         with(rootView) {
             val title = findViewById<TextView>(R.id.new_episodes_title)
             title.text = value.title
             val channelTitle = findViewById<TextView>(R.id.channel_title)
             channelTitle.text = value.channelTitle
+            val coverAsset = findViewById<AppCompatImageView>(R.id.new_episode_cover_asset)
+            Glide.with(this).load(value.coverAssetUrl).placeholder(R.drawable.ic_broken_image).into(coverAsset)
         }
     }
 

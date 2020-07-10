@@ -12,9 +12,10 @@ import com.ayokunlepaul.channel.models.Channel
 import com.ayokunlepaul.channel.models.Episode
 import com.ayokunlepaul.channel.models.SaluranState
 import com.ayokunlepaul.channel.presentation.adapters.ChannelsAdapter
-import com.ayokunlepaul.channel.presentation.adapters.NewEpisodesAdapter
+import com.ayokunlepaul.channel.presentation.adapters.EpisodesAdapter
 import com.ayokunlepaul.channel.utils.itemdecoration.RecyclerInsetsDecoration
 import dagger.hilt.android.AndroidEntryPoint
+import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainActivityViewModel>()
     private val newEpisodes by lazy { findViewById<RecyclerView>(R.id.new_episodes) }
     private val channels by lazy { findViewById<RecyclerView>(R.id.channels) }
-    private val newEpisodesAdapter = NewEpisodesAdapter()
+    private val newEpisodesAdapter = EpisodesAdapter()
     private val channelsAdapter = ChannelsAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
+        val animatorDuration = resources.getInteger(R.integer.animator_duration)
         newEpisodes.apply {
             adapter = newEpisodesAdapter
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 val inset = resources.getDimension(R.dimen.new_episode_inset).toInt()
                 addItemDecoration(RecyclerInsetsDecoration(inset, inset))
             }
+            itemAnimator = SlideInRightAnimator().apply { addDuration = animatorDuration.toLong() }
         }
         channels.apply {
             adapter = channelsAdapter
@@ -50,11 +53,12 @@ class MainActivity : AppCompatActivity() {
             if (itemDecorationCount == 0) {
                 val dividerItemDecoration =
                     DividerItemDecoration(this@MainActivity, RecyclerView.VERTICAL)
-                val verticalInset = resources.getDimension(R.dimen.channels_inset).toInt()
+                val verticalInset = resources.getDimension(R.dimen.channels_vertical_inset).toInt()
                 val horizontalInset = resources.getDimension(R.dimen.new_episode_inset).toInt()
                 addItemDecoration(dividerItemDecoration)
                 addItemDecoration(RecyclerInsetsDecoration(verticalInset, horizontalInset))
             }
+            itemAnimator = SlideInRightAnimator().apply { addDuration = animatorDuration.toLong() }
         }
     }
 

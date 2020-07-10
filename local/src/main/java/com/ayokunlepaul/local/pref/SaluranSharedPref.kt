@@ -1,5 +1,7 @@
 package com.ayokunlepaul.local.pref
 
+import io.reactivex.Observable
+
 interface SaluranSharedPref {
 
     fun setBoolean(key: String, value: Boolean)

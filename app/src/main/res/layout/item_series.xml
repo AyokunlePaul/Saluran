@@ -12,21 +12,22 @@
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        app:cardElevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:rippleColor="@android:color/darker_gray">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/new_episode_cover_asset"
+            android:id="@+id/series_cover_asset"
             android:layout_width="match_parent"
+            android:scaleType="fitXY"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_broken_image" />
 
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/new_episodes_title"
+        android:id="@+id/series_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

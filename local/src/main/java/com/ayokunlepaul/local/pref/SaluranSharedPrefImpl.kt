@@ -3,7 +3,6 @@ package com.ayokunlepaul.local.pref
 import android.content.Context
 import androidx.core.content.edit
 import com.ayokunlepaul.local.BuildConfig
-import com.ayokunlepaul.local.utils.SaluranLocalConstants
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
@@ -28,7 +27,7 @@ class SaluranSharedPrefImpl @Inject constructor(
 
     override fun getString(key: String): String = saluranSharedPref.getString(key, null) ?: ""
 
-    override fun setInt(key: String, value: Int)  = saluranSharedPref.edit {
+    override fun setInt(key: String, value: Int) = saluranSharedPref.edit {
         putInt(key, value)
     }
 

@@ -2,23 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    tools:layout_height="match_parent"
-    tools:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/header_icon"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/thumbnail_card"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        app:cardCornerRadius="100dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_broken_image" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_broken_image" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/channel_title"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
         android:ellipsize="end"
         android:gravity="center_vertical"
         android:lines="1"
@@ -27,7 +38,7 @@
         app:layout_constraintBottom_toTopOf="@+id/media_count"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/header_icon"
+        app:layout_constraintStart_toEndOf="@id/thumbnail_card"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Mindvalley Films" />
 
@@ -36,19 +47,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/header_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/thumbnail_card"
         app:layout_constraintEnd_toEndOf="@+id/channel_title"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/header_icon"
+        app:layout_constraintStart_toStartOf="@+id/channel_title"
         app:layout_constraintTop_toBottomOf="@+id/channel_title"
         tools:text="78 Episodes" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/courses"
+        android:id="@+id/course"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@+id/channel_title"
-        app:layout_constraintStart_toStartOf="@+id/header_icon"
-        app:layout_constraintTop_toBottomOf="@+id/header_icon" />
+        app:layout_constraintStart_toStartOf="@+id/thumbnail_card"
+        app:layout_constraintTop_toBottomOf="@+id/thumbnail_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
