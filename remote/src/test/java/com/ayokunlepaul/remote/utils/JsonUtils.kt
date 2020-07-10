@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.File
 
-object JsonLoader {
+object JsonUtils {
     /**
      * Helper function which will load JSON from
      * the path specified

@@ -11,7 +11,7 @@ import io.reactivex.Observable
 interface CategoriesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveCategory(value: CategoryLocalModel): Long
+    fun insertChannels(value: List<CategoryLocalModel>): List<Long>
 
     @Query("SELECT * FROM categories")
     fun getAllCategories(): Observable<List<CategoryLocalModel>>
