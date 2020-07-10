@@ -10,6 +10,7 @@ import com.ayokunlepaul.channel.mappers.ChannelMapper
 import com.ayokunlepaul.channel.mappers.EpisodeMapper
 import com.ayokunlepaul.channel.models.SaluranState
 import com.ayokunlepaul.channel.utils.SaluranStateUtils
+import com.ayokunlepaul.data.interactors.categories.FetchCategoriesInteractor
 import com.ayokunlepaul.data.interactors.channels.FetchChannelsInteractor
 import com.ayokunlepaul.data.interactors.newepisodes.FetchNewEpisodesInteractor
 
@@ -18,7 +19,8 @@ class MainActivityViewModel @ViewModelInject constructor(
     private val fetchNewEpisodesInteractor: FetchNewEpisodesInteractor,
     private val episodeMapper: EpisodeMapper,
     private val fetchChannelsInteractor: FetchChannelsInteractor,
-    private val channelMapper: ChannelMapper
+    private val channelMapper: ChannelMapper,
+    private val fetchCategoriesInteractor: FetchCategoriesInteractor
 ) : ViewModel() {
 
     private val _newEpisodes = MutableLiveData<SaluranState>()
@@ -26,6 +28,9 @@ class MainActivityViewModel @ViewModelInject constructor(
 
     private val _channels = MutableLiveData<SaluranState>()
     val channels: LiveData<SaluranState> get() = _channels
+
+    private val _categories = MutableLiveData<SaluranState>()
+    val categories: LiveData<SaluranState> get() = _categories
 
     fun getNewEpisodes() {
         _newEpisodes.value = SaluranStateUtils.loading()
@@ -52,9 +57,19 @@ class MainActivityViewModel @ViewModelInject constructor(
         )
     }
 
+    fun getCategories() {
+        _categories.value = SaluranStateUtils.loading()
+        fetchCategoriesInteractor.executeObservableUseCaseAndPerformAction(
+            parameter = null,
+            onSuccess = { _categories.value = SaluranStateUtils.success(data = it) },
+            onFailure = { _categories.value = SaluranStateUtils.failure(it) }
+        )
+    }
+
     override fun onCleared() {
         super.onCleared()
         fetchNewEpisodesInteractor.dispose()
         fetchChannelsInteractor.dispose()
+        fetchCategoriesInteractor.dispose()
     }
 }

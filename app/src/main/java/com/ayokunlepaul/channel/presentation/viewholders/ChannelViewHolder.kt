@@ -53,7 +53,7 @@ class ChannelViewHolder(
     private fun setupCourse(recyclerView: RecyclerView, channel: Channel) {
         val courseAdapter = EpisodesAdapter().apply {
             val episodes = channel.latestMedia.map { it.toEpisode() }
-            setNewEpisodes(if (episodes.size > 6) episodes.take(6) else episodes)
+            setEpisodes(if (episodes.size > 6) episodes.take(6) else episodes)
         }
         with(recyclerView) {
             adapter = courseAdapter

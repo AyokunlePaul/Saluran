@@ -14,7 +14,7 @@ internal class CategoriesRepositoryImpl @Inject constructor(
 
     override fun getAllCategories(): Observable<List<String>> {
         return service.getAllCategories().flatMap {
-            val categoriesString = it.data.map { it.data }
+            val categoriesString = it.data.categories.map { it.data }
             repository.saveCategories(categoriesString)
         }.flatMapObservable {
             repository.hasFetchedCategoriesBefore = true
