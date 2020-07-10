@@ -1,6 +1,7 @@
 package com.ayokunlepaul.channel.presentation
 
 import android.os.Bundle
+import android.os.Handler
 import android.widget.ViewFlipper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ayokunlepaul.channel.R
 import com.ayokunlepaul.channel.models.Channel
 import com.ayokunlepaul.channel.models.Episode
@@ -32,6 +34,8 @@ class MainActivity : AppCompatActivity() {
     private val newEpisodesFlipper by lazy { findViewById<ViewFlipper>(R.id.new_episodes_flipper) }
     private val channelsFlipper by lazy { findViewById<ViewFlipper>(R.id.channels_flipper) }
 
+    private val swipeToRefresh by lazy { findViewById<SwipeRefreshLayout>(R.id.swipe_to_refresh) }
+
     private val newEpisodesAdapter = EpisodesAdapter()
     private val channelsAdapter = ChannelsAdapter()
     private val categoriesAdapter = CategoriesAdapter()
@@ -41,6 +45,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         observeViewModel()
         setupRecyclerView()
+        getAllData()
+        swipeToRefresh.setOnRefreshListener {
+            getAllData()
+            Handler().postDelayed({
+                if (swipeToRefresh.isRefreshing) swipeToRefresh.isRefreshing = false
+            }, 1000)
+        }
+    }
+
+    private fun getAllData() {
         viewModel.getNewEpisodes()
         viewModel.getChannels()
         viewModel.getCategories()
@@ -87,14 +101,17 @@ class MainActivity : AppCompatActivity() {
                 when (it) {
                     is SaluranState.Loading -> {
                         Timber.e("Loading...")
-                        if (newEpisodesFlipper.displayedChild != 0) newEpisodesFlipper.displayedChild = 0
+                        if (newEpisodesFlipper.displayedChild != 0) newEpisodesFlipper.displayedChild =
+                            0
                     }
                     is SaluranState.Failed -> {
                         Timber.e(Throwable(it.message))
-                        if (newEpisodesFlipper.displayedChild != 1) newEpisodesFlipper.displayedChild = 1
+                        if (newEpisodesFlipper.displayedChild != 1) newEpisodesFlipper.displayedChild =
+                            1
                     }
                     else -> {
-                        if (newEpisodesFlipper.displayedChild != 2) newEpisodesFlipper.displayedChild = 2
+                        if (newEpisodesFlipper.displayedChild != 2) newEpisodesFlipper.displayedChild =
+                            2
                         newEpisodesAdapter.setEpisodes((it as SaluranState.Successful<List<Episode>>).data)
                     }
                 }

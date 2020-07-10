@@ -28,8 +28,7 @@ class EpisodesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), AutoUpd
         }
     }
 
-    fun setEpisodes(data: List<Episode>, isFirstBatch: Boolean = false) {
-        episodes = if (isFirstBatch) data
-        else episodes + data
+    fun setEpisodes(data: List<Episode>, isFirstBatch: Boolean = true) {
+        episodes = if (isFirstBatch) data else episodes + data
     }
 }

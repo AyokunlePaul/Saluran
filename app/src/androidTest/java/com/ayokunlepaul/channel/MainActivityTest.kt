@@ -1,22 +1,49 @@
 package com.ayokunlepaul.channel
 
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.rule.ActivityTestRule
+import com.ayokunlepaul.channel.presentation.MainActivity
 import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
 
-@HiltAndroidTest
+@RunWith(AndroidJUnit4::class)
 class MainActivityTest {
 
     @get:Rule
-    val hiltRule = HiltAndroidRule(this)
+    var activityRule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java)
 
     @Before
     fun setup() {
-        hiltRule.inject()
+
     }
 
+    @Test
     fun testThatViewsAreShowing() {
-        val scenario = scenario
+        onView(withId(R.id.activity_new_episodes_title)).check(
+            matches(
+                withEffectiveVisibility(
+                    Visibility.VISIBLE
+                )
+            )
+        )
+        onView(withId(R.id.categories_title)).check(
+            matches(
+                withEffectiveVisibility(
+                    Visibility.VISIBLE
+                )
+            )
+        )
+        onView(withId(R.id.activity_title)).check(
+            matches(
+                withEffectiveVisibility(
+                    Visibility.VISIBLE
+                )
+            )
+        )
     }
 }

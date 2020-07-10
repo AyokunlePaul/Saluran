@@ -24,7 +24,7 @@ class CategoriesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), AutoU
         if (holder is CategoryViewHolder) holder.bindCategory(categories[position])
     }
 
-    fun setCategories(data: List<String>, isFirstBatch: Boolean = false) {
+    fun setCategories(data: List<String>, isFirstBatch: Boolean = true) {
         categories = if (isFirstBatch) data else categories + data
     }
 }

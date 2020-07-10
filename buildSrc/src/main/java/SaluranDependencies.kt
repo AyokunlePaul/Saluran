@@ -24,7 +24,6 @@ object Config {
 
     object Classpaths {
         const val gradle = "com.android.tools.build:gradle:${Versions.gradle}"
-        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$KotlinVersion"
         const val ktlint = "org.jlleitschuh.gradle:ktlint-gradle:$KtlintVersion"
         const val hilt = "com.google.dagger:hilt-android-gradle-plugin:$Hilt"
     }
@@ -35,7 +34,7 @@ object Dependencies {
         object Versions {
             const val coreKtx = "1.1.0"
             const val constraintLayout = "2.0.0-beta7"
-            const val workManager = "2.2.0"
+            const val swipeToRefresh = "1.0.0"
             const val multidex = "2.0.1"
         }
 
@@ -46,8 +45,8 @@ object Dependencies {
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val multidex = "androidx.multidex:multidex:${Versions.multidex}"
-        const val workManager = "androidx.work:work-runtime-ktx:${Versions.workManager}"
-        const val workManagerRx = "androidx.work:work-rxjava2:${Versions.workManager}"
+        const val swipeToRefresh =
+            "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeToRefresh}"
     }
 
     object Network {
@@ -96,14 +95,11 @@ object Dependencies {
     object View {
         object Versions {
             const val materialComponent = "1.3.0-alpha01"
-            const val rxAnimation = "0.0.6"
             const val shimmerLayout = "0.4.0"
-            const val mikhaellopez = "3.0.2"
         }
 
         const val materialComponent =
             "com.google.android.material:material:${Versions.materialComponent}"
-        const val rxAnimation = "com.mikhaellopez:rxanimation:${Versions.rxAnimation}"
         const val shimmerLayout = "com.facebook.shimmer:shimmer:${Versions.shimmerLayout}"
     }
 
@@ -114,7 +110,6 @@ object Dependencies {
             const val timber = "4.7.1"
             const val overscrollDecor = "1.0.4"
             const val glide = "4.11.0"
-            const val swipeToRefresh = "2.0.1"
         }
 
         const val recyclerAnimator =
@@ -125,10 +120,6 @@ object Dependencies {
             "me.everything:overscroll-decor-android:${Versions.overscrollDecor}"
         const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
         const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
-        const val swipeToRefresh =
-            "com.scwang.smart:refresh-layout-kernel:${Versions.swipeToRefresh}"
-        const val swipeToRefreshHeader =
-            "com.scwang.smart:refresh-header-material:${Versions.swipeToRefresh}"
     }
 
     object Async {
@@ -175,11 +166,6 @@ fun DependencyHandler.implementDI() {
     add("kapt", Dependencies.DependencyInjection.hiltCompiler)
 }
 
-fun DependencyHandler.implementWorker() {
-    add("implementation", Dependencies.AndroidX.workManager)
-    add("implementation", Dependencies.AndroidX.workManagerRx)
-}
-
 fun DependencyHandler.implementRoom() {
     add("api", Dependencies.Persistence.room)
     add("api", Dependencies.Persistence.roomRxJava)
@@ -204,6 +190,8 @@ fun DependencyHandler.implementAsync() {
 
 fun DependencyHandler.implementAndroidX() {
     add("implementation", Dependencies.AndroidX.coreKtx)
+    add("implementation", Dependencies.AndroidX.swipeToRefresh)
+    add("implementation", Dependencies.AndroidX.multidex)
     add("implementation", Dependencies.AndroidX.activityKtx)
     add("implementation", Dependencies.AndroidX.constraintLayout)
     add("implementation", Dependencies.AndroidX.lifecycle)
@@ -251,14 +239,11 @@ fun DependencyHandler.implementApp() {
     add("implementation", Dependencies.DependencyInjection.hiltJetpack)
     add("kapt", Dependencies.DependencyInjection.hiltJetpackCompiler)
     add("implementation", Dependencies.Utilities.timber)
-    add("implementation", Dependencies.Utilities.swipeToRefresh)
-    add("implementation", Dependencies.Utilities.swipeToRefreshHeader)
     add("implementation", Dependencies.Utilities.overscrollDecor)
     add("implementation", Dependencies.Utilities.glide)
     add("kapt", Dependencies.Utilities.glideCompiler)
     add("implementation", Dependencies.Utilities.recyclerAnimator)
     add("implementation", Dependencies.View.shimmerLayout)
-    add("implementation", Dependencies.AndroidX.multidex)
     add("testImplementation", Dependencies.Test.mockk)
     add("testImplementation", Dependencies.Test.junit)
     add("debugImplementation", Dependencies.Test.mockkAndroid)
