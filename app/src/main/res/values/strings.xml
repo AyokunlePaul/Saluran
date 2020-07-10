@@ -3,4 +3,5 @@
     <string name="channel">Channel</string>
     <string name="media_count">%d episodes</string>
     <string name="new_episodes">New Episodes</string>
+    <string name="browse_by_categories">Browse by categories</string>
 </resources>
