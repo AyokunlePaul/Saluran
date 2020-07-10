@@ -1,7 +1,7 @@
 package com.ayokunlepaul.remote
 
 import com.ayokunlepaul.remote.services.SaluranService
-import com.ayokunlepaul.remote.utils.JsonLoader
+import com.ayokunlepaul.remote.utils.JsonUtils
 import com.ayokunlepaul.remote.utils.okhttp
 import com.ayokunlepaul.remote.utils.retrofit
 import okhttp3.mockwebserver.MockResponse
@@ -45,7 +45,7 @@ class SaluranServiceTest {
 
     @Test
     fun `test that new episodes return accurately`() {
-        val newEpisodesJson = JsonLoader.getJson("new_episodes.json")
+        val newEpisodesJson = JsonUtils.getJson("new_episodes.json")
         val response =
             MockResponse().setResponseCode(HttpURLConnection.HTTP_OK).setBody(newEpisodesJson)
         mockWebServer.enqueue(response)
@@ -60,7 +60,7 @@ class SaluranServiceTest {
 
     @Test
     fun `test that channels are returned accurately`() {
-        val newEpisodesJson = JsonLoader.getJson("channels.json")
+        val newEpisodesJson = JsonUtils.getJson("channels.json")
         val response =
             MockResponse().setResponseCode(HttpURLConnection.HTTP_OK).setBody(newEpisodesJson)
         mockWebServer.enqueue(response)
@@ -72,6 +72,23 @@ class SaluranServiceTest {
                 it.data.channels?.size == 2
             }.assertValue {
                 !it.data.channels?.get(1)?.slug.isNullOrBlank()
+            }.assertNoErrors()
+    }
+
+    @Test
+    fun `test that categories are returned accurately`() {
+        val newEpisodesJson = JsonUtils.getJson("categories.json")
+        val response =
+            MockResponse().setResponseCode(HttpURLConnection.HTTP_OK).setBody(newEpisodesJson)
+        mockWebServer.enqueue(response)
+
+        service.getAllCategories().test()
+            .assertComplete()
+            .assertValueCount(1)
+            .assertValue {
+                it.data.categories.size == 4
+            }.assertValue {
+                it.data.categories[1].data == "Character"
             }.assertNoErrors()
     }
 }

@@ -1,0 +1,18 @@
+{
+  "data": {
+    "categories": [
+      {
+        "name": "Career"
+      },
+      {
+        "name": "Character"
+      },
+      {
+        "name": "Emotional"
+      },
+      {
+        "name": "Financial"
+      }
+    ]
+  }
+}
