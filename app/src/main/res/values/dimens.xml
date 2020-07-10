@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="new_episode_inset">10dp</dimen>
+    <dimen name="channels_horizontal_inset">20dp</dimen>
+    <dimen name="channels_vertical_inset">16dp</dimen>
+</resources>

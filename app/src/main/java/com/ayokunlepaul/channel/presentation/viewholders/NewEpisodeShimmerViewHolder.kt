@@ -6,22 +6,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ayokunlepaul.channel.R
 
-class CourseViewHolder(
+class NewEpisodeShimmerViewHolder(
     private val rootView: View
 ) : RecyclerView.ViewHolder(rootView) {
 
-    fun bind() {
-
-    }
-
     companion object {
         @JvmStatic
-        fun get(
-            parent: ViewGroup
-        ): CourseViewHolder {
+        fun get(parent: ViewGroup): NewEpisodeShimmerViewHolder {
             val inflater = LayoutInflater.from(parent.context)
-            val rootView = inflater.inflate(R.layout.item_course, parent, false)
-            return CourseViewHolder(rootView)
+            val rootView = inflater.inflate(R.layout.shimmer_item_new_episode, parent, false)
+            return NewEpisodeShimmerViewHolder(rootView)
         }
     }
 }

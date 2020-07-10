@@ -7,8 +7,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/new_episode_cover_asset_card"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="10dp"
@@ -18,16 +18,16 @@
         app:rippleColor="@android:color/darker_gray">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/new_episode_cover_asset"
-            android:layout_width="150dp"
+            android:id="@+id/series_cover_asset"
+            android:layout_width="match_parent"
             android:scaleType="fitXY"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_broken_image" />
 
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/new_episodes_title"
+        android:id="@+id/series_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -40,18 +40,5 @@
         app:layout_constraintStart_toStartOf="@id/new_episode_cover_asset_card"
         app:layout_constraintTop_toBottomOf="@id/new_episode_cover_asset_card"
         tools:text="The Secret Of Chinese Healers And Martial Artists" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:id="@+id/channel_title"
-        android:maxLines="2"
-        android:textAllCaps="true"
-        android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="@+id/new_episodes_title"
-        app:layout_constraintStart_toStartOf="@+id/new_episodes_title"
-        app:layout_constraintTop_toBottomOf="@+id/new_episodes_title"
-        tools:text="Mindvalley Mentoring" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

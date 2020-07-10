@@ -1,7 +1,7 @@
 package com.ayokunlepaul.local.impl
 
 import com.ayokunlepaul.data.models.EpisodeEntity
-import com.ayokunlepaul.data.repository.NewEpisodeRepository
+import com.ayokunlepaul.data.repository.NewEpisodesRepository
 import com.ayokunlepaul.local.mappers.EpisodeLocalModelMapper
 import com.ayokunlepaul.local.pref.SaluranSharedPref
 import com.ayokunlepaul.local.room.daos.NewEpisodesDao
@@ -10,11 +10,11 @@ import io.reactivex.Observable
 import io.reactivex.Single
 import javax.inject.Inject
 
-class NewEpisodeRepositoryImpl @Inject constructor(
+class NewEpisodesRepositoryImpl @Inject constructor(
     private val sharedPref: SaluranSharedPref,
     private val newEpisodesDao: NewEpisodesDao,
     private val episodeLocalModelMapper: EpisodeLocalModelMapper
-) : NewEpisodeRepository {
+) : NewEpisodesRepository {
 
     override var hasSavedNewEpisodesBefore: Boolean
         get() = sharedPref.getBoolean(SaluranLocalConstants.HAS_FETCHED_NEW_EPISODES_BEFORE)

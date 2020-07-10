@@ -1,10 +1,12 @@
 package com.ayokunlepaul.local.di
 
 import com.ayokunlepaul.data.di.LocalRepositoryImpl
-import com.ayokunlepaul.data.repository.ChannelRepository
-import com.ayokunlepaul.data.repository.NewEpisodeRepository
-import com.ayokunlepaul.local.impl.ChannelRepositoryImpl
-import com.ayokunlepaul.local.impl.NewEpisodeRepositoryImpl
+import com.ayokunlepaul.data.repository.CategoriesRepository
+import com.ayokunlepaul.data.repository.ChannelsRepository
+import com.ayokunlepaul.data.repository.NewEpisodesRepository
+import com.ayokunlepaul.local.impl.CategoriesRepositoryImpl
+import com.ayokunlepaul.local.impl.ChannelsRepositoryImpl
+import com.ayokunlepaul.local.impl.NewEpisodesRepositoryImpl
 import com.ayokunlepaul.local.pref.SaluranSharedPref
 import com.ayokunlepaul.local.pref.SaluranSharedPrefImpl
 import dagger.Binds
@@ -21,15 +23,22 @@ abstract class LocalImplModule {
     @Singleton
     @LocalRepositoryImpl
     internal abstract fun bindNewEpisodesRepository(
-        impl: NewEpisodeRepositoryImpl
-    ): NewEpisodeRepository
+        impl: NewEpisodesRepositoryImpl
+    ): NewEpisodesRepository
 
     @Binds
     @Singleton
     @LocalRepositoryImpl
     internal abstract fun bindChannelsRepository(
-        impl: ChannelRepositoryImpl
-    ): ChannelRepository
+        impl: ChannelsRepositoryImpl
+    ): ChannelsRepository
+
+    @Binds
+    @Singleton
+    @LocalRepositoryImpl
+    internal abstract fun bindCategoriesRepository(
+        impl: CategoriesRepositoryImpl
+    ): CategoriesRepository
 
     @Binds
     @Singleton

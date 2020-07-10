@@ -32,4 +32,8 @@ class SaluranDatabaseModule {
     @Provides
     @Singleton
     internal fun provideChannelsDao(database: SaluranDatabase) = database.getChannelsDao()
+
+    @Provides
+    @Singleton
+    internal fun provideCategoriesDao(database: SaluranDatabase) = database.getCategoriesDao()
 }
