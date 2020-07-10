@@ -56,7 +56,7 @@ class SaluranDaoTest {
     fun saveIntoNewEpisodesTable() {
         val data = SaluranTestUtils.createNewEpisodes()
         episodesDao.insertNewEpisodes(data)
-        episodesDao.getAllNewEpisodes()¬.test().assertComplete().assertValueCount(1)
+        episodesDao.getAllNewEpisodes().test().assertComplete().assertValueCount(1)
             .assertValue {
                 it.size == data.size
             }.assertNoErrors()
