@@ -1,6 +1,7 @@
 package com.ayokunlepaul.channel.presentation
 
 import android.os.Bundle
+import android.widget.ViewFlipper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
     private val newEpisodes by lazy { findViewById<RecyclerView>(R.id.new_episodes) }
     private val channels by lazy { findViewById<RecyclerView>(R.id.channels) }
     private val categories by lazy { findViewById<RecyclerView>(R.id.categories) }
+
+    private val newEpisodesFlipper by lazy { findViewById<ViewFlipper>(R.id.new_episodes_flipper) }
+    private val channelsFlipper by lazy { findViewById<ViewFlipper>(R.id.channels_flipper) }
+
     private val newEpisodesAdapter = EpisodesAdapter()
     private val channelsAdapter = ChannelsAdapter()
     private val categoriesAdapter = CategoriesAdapter()
@@ -80,18 +85,32 @@ class MainActivity : AppCompatActivity() {
         with(viewModel) {
             newEpisodes.observe(this@MainActivity, Observer {
                 when (it) {
-                    is SaluranState.Loading -> Timber.e("Loading...")
-                    is SaluranState.Failed -> Timber.e(Throwable(it.message))
+                    is SaluranState.Loading -> {
+                        Timber.e("Loading...")
+                        if (newEpisodesFlipper.displayedChild != 0) newEpisodesFlipper.displayedChild = 0
+                    }
+                    is SaluranState.Failed -> {
+                        Timber.e(Throwable(it.message))
+                        if (newEpisodesFlipper.displayedChild != 1) newEpisodesFlipper.displayedChild = 1
+                    }
                     else -> {
+                        if (newEpisodesFlipper.displayedChild != 2) newEpisodesFlipper.displayedChild = 2
                         newEpisodesAdapter.setEpisodes((it as SaluranState.Successful<List<Episode>>).data)
                     }
                 }
             })
             channels.observe(this@MainActivity, Observer {
                 when (it) {
-                    is SaluranState.Loading -> Timber.e("Loading...")
-                    is SaluranState.Failed -> Timber.e(Throwable(it.message))
+                    is SaluranState.Loading -> {
+                        if (channelsFlipper.displayedChild != 0) channelsFlipper.displayedChild = 0
+                        Timber.e("Loading...")
+                    }
+                    is SaluranState.Failed -> {
+                        if (channelsFlipper.displayedChild != 1) channelsFlipper.displayedChild = 1
+                        Timber.e(Throwable(it.message))
+                    }
                     else -> {
+                        if (channelsFlipper.displayedChild != 2) channelsFlipper.displayedChild = 2
                         channelsAdapter.setChannels((it as SaluranState.Successful<List<Channel>>).data)
                     }
                 }

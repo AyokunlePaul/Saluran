@@ -114,6 +114,7 @@ object Dependencies {
             const val timber = "4.7.1"
             const val overscrollDecor = "1.0.4"
             const val glide = "4.11.0"
+            const val swipeToRefresh = "2.0.1"
         }
 
         const val recyclerAnimator =
@@ -124,6 +125,8 @@ object Dependencies {
             "me.everything:overscroll-decor-android:${Versions.overscrollDecor}"
         const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
         const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+        const val swipeToRefresh = "com.scwang.smart:refresh-layout-kernel:${Versions.swipeToRefresh}"
+        const val swipeToRefreshHeader = "com.scwang.smart:refresh-header-material:${Versions.swipeToRefresh}"
     }
 
     object Async {
@@ -245,6 +248,8 @@ fun DependencyHandler.implementApp() {
     add("implementation", Dependencies.DependencyInjection.hiltJetpack)
     add("kapt", Dependencies.DependencyInjection.hiltJetpackCompiler)
     add("implementation", Dependencies.Utilities.timber)
+    add("implementation", Dependencies.Utilities.swipeToRefresh)
+    add("implementation", Dependencies.Utilities.swipeToRefreshHeader)
     add("implementation", Dependencies.Utilities.overscrollDecor)
     add("implementation", Dependencies.Utilities.glide)
     add("kapt", Dependencies.Utilities.glideCompiler)
