@@ -8,7 +8,7 @@
     tools:context=".presentation.MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/activity_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_black"
@@ -22,71 +22,108 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView">
+        app:layout_constraintTop_toBottomOf="@id/activity_title"
+        android:id="@+id/swipe_to_refresh">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/new_episodes_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:padding="10dp"
-                android:text="@string/new_episodes"
-                android:textColor="#95989D"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/new_episodes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/new_episodes_title" />
+                <TextView
+                    android:id="@+id/activity_new_episodes_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:padding="10dp"
+                    android:text="@string/new_episodes"
+                    android:textColor="#95989D"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/channels"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="@id/new_episodes"
-                app:layout_constraintStart_toStartOf="@id/new_episodes"
-                app:layout_constraintTop_toBottomOf="@id/new_episodes" />
+                <ViewFlipper
+                    android:id="@+id/new_episodes_flipper"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_new_episodes_title">
 
-            <TextView
-                android:id="@+id/categories_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:padding="10dp"
-                android:text="@string/browse_by_categories"
-                android:textColor="#95989D"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/channels" />
+                    <include layout="@layout/layout_episode_shimmer" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/categories"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="@id/channels"
-                app:layout_constraintStart_toStartOf="@id/channels"
-                app:layout_constraintTop_toBottomOf="@id/categories_title" />
+                    <include layout="@layout/layout_no_episode" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/new_episodes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/new_episodes_title"
+                        tools:layout_height="100dp" />
 
-    </androidx.core.widget.NestedScrollView>
+                </ViewFlipper>
+
+                <ViewFlipper
+                    android:id="@+id/channels_flipper"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="@id/new_episodes_flipper"
+                    app:layout_constraintStart_toStartOf="@id/new_episodes_flipper"
+                    app:layout_constraintTop_toBottomOf="@id/new_episodes_flipper">
+
+                    <include layout="@layout/layout_channel_shimmer" />
+
+                    <include layout="@layout/layout_no_channel" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/channels"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="@id/new_episodes_flipper"
+                        app:layout_constraintStart_toStartOf="@id/new_episodes_flipper"
+                        app:layout_constraintTop_toBottomOf="@id/new_episodes_flipper" />
+
+                </ViewFlipper>
+
+                <TextView
+                    android:id="@+id/categories_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:padding="10dp"
+                    android:text="@string/browse_by_categories"
+                    android:textColor="#95989D"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/channels_flipper" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/categories"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="@id/channels_flipper"
+                    app:layout_constraintStart_toStartOf="@id/channels_flipper"
+                    app:layout_constraintTop_toBottomOf="@id/categories_title" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

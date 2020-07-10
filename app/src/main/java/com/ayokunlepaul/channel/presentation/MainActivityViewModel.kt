@@ -1,10 +1,8 @@
 package com.ayokunlepaul.channel.presentation
 
-import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.ayokunlepaul.channel.mappers.ChannelMapper
 import com.ayokunlepaul.channel.mappers.EpisodeMapper
@@ -15,7 +13,6 @@ import com.ayokunlepaul.data.interactors.channels.FetchChannelsInteractor
 import com.ayokunlepaul.data.interactors.newepisodes.FetchNewEpisodesInteractor
 
 class MainActivityViewModel @ViewModelInject constructor(
-    @Assisted savedStateHandle: SavedStateHandle,
     private val fetchNewEpisodesInteractor: FetchNewEpisodesInteractor,
     private val episodeMapper: EpisodeMapper,
     private val fetchChannelsInteractor: FetchChannelsInteractor,

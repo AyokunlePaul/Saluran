@@ -27,7 +27,7 @@ class ChannelsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), AutoUpd
         }
     }
 
-    fun setChannels(data: List<Channel>, isFirstBatch: Boolean = false) {
+    fun setChannels(data: List<Channel>, isFirstBatch: Boolean = true) {
         channels = if (isFirstBatch) data else channels + data
     }
 }

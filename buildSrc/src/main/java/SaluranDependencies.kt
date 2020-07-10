@@ -24,7 +24,6 @@ object Config {
 
     object Classpaths {
         const val gradle = "com.android.tools.build:gradle:${Versions.gradle}"
-        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$KotlinVersion"
         const val ktlint = "org.jlleitschuh.gradle:ktlint-gradle:$KtlintVersion"
         const val hilt = "com.google.dagger:hilt-android-gradle-plugin:$Hilt"
     }
@@ -35,7 +34,7 @@ object Dependencies {
         object Versions {
             const val coreKtx = "1.1.0"
             const val constraintLayout = "2.0.0-beta7"
-            const val workManager = "2.2.0"
+            const val swipeToRefresh = "1.0.0"
             const val multidex = "2.0.1"
         }
 
@@ -46,8 +45,8 @@ object Dependencies {
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val multidex = "androidx.multidex:multidex:${Versions.multidex}"
-        const val workManager = "androidx.work:work-runtime-ktx:${Versions.workManager}"
-        const val workManagerRx = "androidx.work:work-rxjava2:${Versions.workManager}"
+        const val swipeToRefresh =
+            "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeToRefresh}"
     }
 
     object Network {
@@ -96,14 +95,11 @@ object Dependencies {
     object View {
         object Versions {
             const val materialComponent = "1.3.0-alpha01"
-            const val rxAnimation = "0.0.6"
             const val shimmerLayout = "0.4.0"
-            const val mikhaellopez = "3.0.2"
         }
 
         const val materialComponent =
             "com.google.android.material:material:${Versions.materialComponent}"
-        const val rxAnimation = "com.mikhaellopez:rxanimation:${Versions.rxAnimation}"
         const val shimmerLayout = "com.facebook.shimmer:shimmer:${Versions.shimmerLayout}"
     }
 
@@ -156,6 +152,7 @@ object Dependencies {
         const val testExt = "androidx.test.ext:junit:${Versions.testExt}"
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
         const val rules = "androidx.test:rules:${Versions.rules}"
+        const val hiltTest = "com.google.dagger:hilt-android-testing:${Hilt}"
     }
 }
 
@@ -167,11 +164,6 @@ fun DependencyHandler.inject() {
 fun DependencyHandler.implementDI() {
     add("implementation", Dependencies.DependencyInjection.hilt)
     add("kapt", Dependencies.DependencyInjection.hiltCompiler)
-}
-
-fun DependencyHandler.implementWorker() {
-    add("implementation", Dependencies.AndroidX.workManager)
-    add("implementation", Dependencies.AndroidX.workManagerRx)
 }
 
 fun DependencyHandler.implementRoom() {
@@ -198,6 +190,8 @@ fun DependencyHandler.implementAsync() {
 
 fun DependencyHandler.implementAndroidX() {
     add("implementation", Dependencies.AndroidX.coreKtx)
+    add("implementation", Dependencies.AndroidX.swipeToRefresh)
+    add("implementation", Dependencies.AndroidX.multidex)
     add("implementation", Dependencies.AndroidX.activityKtx)
     add("implementation", Dependencies.AndroidX.constraintLayout)
     add("implementation", Dependencies.AndroidX.lifecycle)
@@ -250,7 +244,6 @@ fun DependencyHandler.implementApp() {
     add("kapt", Dependencies.Utilities.glideCompiler)
     add("implementation", Dependencies.Utilities.recyclerAnimator)
     add("implementation", Dependencies.View.shimmerLayout)
-    add("implementation", Dependencies.AndroidX.multidex)
     add("testImplementation", Dependencies.Test.mockk)
     add("testImplementation", Dependencies.Test.junit)
     add("debugImplementation", Dependencies.Test.mockkAndroid)
@@ -258,6 +251,8 @@ fun DependencyHandler.implementApp() {
     add("debugImplementation", Dependencies.Test.testExt)
     add("debugImplementation", Dependencies.Test.espresso)
     add("debugImplementation", Dependencies.Test.rules)
+    add("testImplementation", Dependencies.Test.hiltTest)
+    add("androidTestImplementation", Dependencies.Test.hiltTest)
     add("debugImplementation", Dependencies.Test.coreTesting)
     add("debugImplementation", Dependencies.Test.fragmentTesting)
     implementAndroidX()
