@@ -26,13 +26,14 @@ internal class CategoriesRepositoryImpl @Inject constructor(
     }
 
     override fun saveCategories(value: List<String>): Single<Int> {
-        value.forEach {
-            val category = CategoryLocalModel(
-                id = 0,
-                categoryName = it
-            )
-            categoriesDao.saveCategory(category)
-        }
+        categoriesDao.insertChannels(
+            value.map {
+                CategoryLocalModel(
+                    id = 0,
+                    categoryName = it
+                )
+            }
+        )
         return Single.just(value.size)
     }
 }
