@@ -125,8 +125,10 @@ object Dependencies {
             "me.everything:overscroll-decor-android:${Versions.overscrollDecor}"
         const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
         const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
-        const val swipeToRefresh = "com.scwang.smart:refresh-layout-kernel:${Versions.swipeToRefresh}"
-        const val swipeToRefreshHeader = "com.scwang.smart:refresh-header-material:${Versions.swipeToRefresh}"
+        const val swipeToRefresh =
+            "com.scwang.smart:refresh-layout-kernel:${Versions.swipeToRefresh}"
+        const val swipeToRefreshHeader =
+            "com.scwang.smart:refresh-header-material:${Versions.swipeToRefresh}"
     }
 
     object Async {
@@ -159,6 +161,7 @@ object Dependencies {
         const val testExt = "androidx.test.ext:junit:${Versions.testExt}"
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
         const val rules = "androidx.test:rules:${Versions.rules}"
+        const val hiltTest = "com.google.dagger:hilt-android-testing:${Hilt}"
     }
 }
 
@@ -263,6 +266,8 @@ fun DependencyHandler.implementApp() {
     add("debugImplementation", Dependencies.Test.testExt)
     add("debugImplementation", Dependencies.Test.espresso)
     add("debugImplementation", Dependencies.Test.rules)
+    add("testImplementation", Dependencies.Test.hiltTest)
+    add("androidTestImplementation", Dependencies.Test.hiltTest)
     add("debugImplementation", Dependencies.Test.coreTesting)
     add("debugImplementation", Dependencies.Test.fragmentTesting)
     implementAndroidX()
